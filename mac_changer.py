@@ -2,12 +2,14 @@
 
 import subprocess
 
-mac = input("Mac adresi girin : ")
+interface = "eth0"
+new_mac = input("Mac adresi girin : ")
 
+print("[+] Changing MAC address for " + interface + " to " + new_mac)
 
-subprocess.call(["ifconfig", "eth0", "down"], shell=True)
-subprocess.call(["ifconfig", "eth0", "hw", "ether", mac], shell=True)
-subprocess.call(["ifconfig", "eth0", "up"], shell=True)
+subprocess.call(["ifconfig", interface, "down"], shell=True)
+subprocess.call(["ifconfig", interface, "hw", "ether", new_mac], shell=True)
+subprocess.call(["ifconfig", interface, "up"], shell=True)
 
 
 
