@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 
 import subprocess
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", "--interface", dest="interface", help="Interface to change its mac address")
+
+parser.parse_args()
 
 interface = input("Interface > ")
 new_mac = input("Mac > ")
@@ -19,6 +25,7 @@ subprocess.call("ifconfig " + interface + " up", shell=True)
 subprocess.call(["ifconfig", interface, "down"])
 subprocess.call(["ifconfig", interface, "hw", "ether", new_mac])
 subprocess.call(["ifconfig", interface, "up"])
+
 
 
 
