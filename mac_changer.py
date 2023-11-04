@@ -5,6 +5,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--interface", dest="interface", help="Interface to change its mac address")
+parser.add_argument("-m", "--mac", dest="new_mac", help="New mac address")
 
 parser.parse_args()
 
